@@ -21,11 +21,11 @@ Also generated: `/sitemap.xml`, `/robots.txt`, a favicon and an Open Graph share
 
 Everything a business owner would change lives in one file:
 **`src/content/site.ts`**. Phone, email, hours, social links, services, packages
-and prices, testimonials, cities, FAQs and gallery captions all come from there.
+and prices, why-us points, cities, FAQs and gallery captions all come from there.
 Quote-form dropdown options live in `src/content/quote-options.ts`.
 
-The phone number, email and social links in `site.ts` are placeholders.
-Replace them before launch.
+There is no reviews section yet. Once the first customers are in, add a
+`testimonials` array to `site.ts` and a section on the home page.
 
 ### Adding real photos
 

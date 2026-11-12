@@ -83,11 +83,3 @@ export function Check() {
     </svg>
   );
 }
-
-export function Star() {
-  return (
-    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-      <path d="M12 2.5l2.9 6.2 6.8.8-5 4.7 1.3 6.7L12 17.6 6 20.9l1.3-6.7-5-4.7 6.8-.8z" />
-    </svg>
-  );
-}

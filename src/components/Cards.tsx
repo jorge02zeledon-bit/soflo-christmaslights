@@ -1,6 +1,6 @@
 import Link from "next/link";
 import type { GalleryItem, Package, Service } from "@/content/site";
-import { Check, ServiceIcon, Star } from "@/components/Icons";
+import { Check, ServiceIcon } from "@/components/Icons";
 import { HouseScene } from "@/components/HouseScene";
 
 export function ServiceCard({ service, detailed = false }: { service: Service; detailed?: boolean }) {
@@ -58,26 +58,6 @@ export function PackageCard({ pkg }: { pkg: Package }) {
   );
 }
 
-export function TestimonialCard({ t }: { t: { quote: string; name: string; location: string; package: string } }) {
-  return (
-    <figure className="card flex h-full flex-col p-6">
-      <div className="flex gap-0.5 text-gold" aria-label="5 out of 5 stars">
-        {[0, 1, 2, 3, 4].map((i) => (
-          <Star key={i} />
-        ))}
-      </div>
-      <blockquote className="mt-4 flex-1 text-[15px] leading-relaxed text-mist">“{t.quote}”</blockquote>
-      <figcaption className="mt-5 text-sm">
-        <span className="font-semibold">{t.name}</span>
-        <span className="text-mist-dim">
-          {" "}
-          · {t.location} · {t.package}
-        </span>
-      </figcaption>
-    </figure>
-  );
-}
-
 const SCENE_MAP: Record<GalleryItem["scene"], { variant: "home" | "estate" | "commercial" | "palms" | "megatree"; palette: "warm" | "candy" | "multi" | "cool" }> = {
   roofline: { variant: "home", palette: "warm" },
   estate: { variant: "estate", palette: "warm" },
@@ -102,7 +82,7 @@ export function GalleryCard({ item, index }: { item: GalleryItem; index: number 
       </div>
       <figcaption className="p-5">
         <p className="font-semibold">{item.title}</p>
-        <p className="mt-1 text-sm text-mist-dim">{item.location}</p>
+        <p className="mt-1 text-sm text-mist-dim">{item.subtitle}</p>
         <div className="mt-3 flex flex-wrap gap-2">
           {item.tags.map((tag) => (
             <span key={tag} className="rounded-full border border-white/10 px-2.5 py-0.5 text-xs text-mist-dim">

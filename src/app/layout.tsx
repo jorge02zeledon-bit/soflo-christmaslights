@@ -62,7 +62,6 @@ const localBusinessJsonLd = {
   url: business.url,
   telephone: business.phone,
   email: business.email,
-  foundingDate: String(business.founded),
   address: {
     "@type": "PostalAddress",
     addressLocality: business.address.locality,
@@ -72,7 +71,7 @@ const localBusinessJsonLd = {
   areaServed: ["Miami-Dade County", "Broward County", "Palm Beach County"],
   openingHours: "Mo-Sa 08:00-19:00",
   priceRange: "$$",
-  sameAs: [business.social.instagram, business.social.facebook],
+  sameAs: [business.social.instagram],
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {

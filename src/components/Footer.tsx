@@ -66,12 +66,9 @@ export function Footer() {
             <li>
               Based in {business.address.locality}, {business.address.region}
             </li>
-            <li className="flex gap-4 pt-2">
+            <li className="pt-2">
               <a href={business.social.instagram} className="hover:text-mist" rel="noopener noreferrer" target="_blank">
-                Instagram
-              </a>
-              <a href={business.social.facebook} className="hover:text-mist" rel="noopener noreferrer" target="_blank">
-                Facebook
+                Instagram {business.social.instagramHandle}
               </a>
             </li>
           </ul>

@@ -1,11 +1,12 @@
 import Link from "next/link";
 import { HouseScene } from "@/components/HouseScene";
 import { Section } from "@/components/Section";
-import { GalleryCard, PackageCard, ServiceCard, TestimonialCard } from "@/components/Cards";
+import { GalleryCard, PackageCard, ServiceCard } from "@/components/Cards";
 import { FaqList } from "@/components/Faq";
 import { CtaBand } from "@/components/CtaBand";
 import { QuoteForm } from "@/components/QuoteForm";
-import { business, faqs, gallery, packages, processSteps, services, serviceAreas, testimonials } from "@/content/site";
+import { business, faqs, gallery, packages, processSteps, services, serviceAreas, whyUs } from "@/content/site";
+import { Check } from "@/components/Icons";
 
 export default function HomePage() {
   return (
@@ -94,7 +95,7 @@ export default function HomePage() {
           ))}
         </div>
         <p className="mt-8 text-center text-sm text-mist-dim">
-          Returning clients re-install for roughly 60–70% of year-one pricing.{" "}
+          Founding-season rates. Returning clients re-install for roughly 60–70% of year-one pricing.{" "}
           <Link href="/pricing" className="font-semibold text-gold">
             Full pricing details →
           </Link>
@@ -103,7 +104,12 @@ export default function HomePage() {
 
       {/* Gallery preview */}
       <section className="border-y border-white/5 bg-night-900/60">
-        <Section eyebrow="Recent installs" title="Lighting up South Florida, one street at a time" className="py-20">
+        <Section
+          eyebrow="Looks we install"
+          title="Pick a style, we fit it to your home"
+          intro="Illustrated examples of the most requested looks. Photos of this season's installs are added here as they go up."
+          className="py-20"
+        >
           <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
             {gallery.slice(0, 3).map((g, i) => (
               <GalleryCard key={g.title} item={g} index={i} />
@@ -117,11 +123,21 @@ export default function HomePage() {
         </Section>
       </section>
 
-      {/* Testimonials */}
-      <Section eyebrow="Reviews" title="Neighbors talk. Here's what they say." align="center">
-        <div className="grid gap-6 md:grid-cols-2">
-          {testimonials.map((t) => (
-            <TestimonialCard key={t.name} t={t} />
+      {/* Why us */}
+      <Section
+        eyebrow="Why us"
+        title="A new local company with old-fashioned standards"
+        intro="We're starting our first season in South Florida, and we intend to earn every review the hard way: by showing up, doing clean work and answering the phone."
+      >
+        <div className="grid gap-6 sm:grid-cols-2">
+          {whyUs.map((w) => (
+            <div key={w.title} className="card flex gap-4 p-6">
+              <Check />
+              <div>
+                <h3 className="text-lg font-semibold">{w.title}</h3>
+                <p className="mt-1.5 text-sm leading-relaxed text-mist-dim">{w.text}</p>
+              </div>
+            </div>
           ))}
         </div>
       </Section>

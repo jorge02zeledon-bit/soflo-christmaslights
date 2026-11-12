@@ -7,7 +7,7 @@ import { gallery } from "@/content/site";
 
 export const metadata: Metadata = {
   title: "Gallery",
-  description: "Recent Christmas light installations across Miami-Dade, Broward and Palm Beach: rooflines, wrapped palms, wreaths, commercial displays and mega trees.",
+  description: "Christmas light styles we install across Miami-Dade, Broward and Palm Beach: rooflines, wrapped palms, wreaths, commercial displays and mega trees.",
 };
 
 export default function GalleryPage() {
@@ -15,8 +15,8 @@ export default function GalleryPage() {
     <>
       <PageHero
         eyebrow="Gallery"
-        title="Recent installs across South Florida"
-        intro="A sample of this season's rooflines, palm wraps, storefronts and yard displays. Every one was designed with the homeowner from a photo mock-up before install day."
+        title="The looks we install"
+        intro="Illustrated examples of our most requested styles: rooflines, palm wraps, storefronts and yard displays. Photos from this season's installs will be added here as they go up, and you'll see a mock-up of your own home before install day."
       >
         <Link href="/quote" className="btn btn-primary">
           Get a display like this
