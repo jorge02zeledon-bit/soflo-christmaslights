@@ -1,0 +1,166 @@
+@import "tailwindcss";
+
+:root {
+  --night-950: #070b16;
+  --night-900: #0b1222;
+  --night-800: #111b31;
+  --night-700: #1a2742;
+  --night-600: #26365a;
+  --mist: #e8ecf5;
+  --mist-dim: #a9b4cc;
+  --gold: #f6c453;
+  --gold-soft: #ffe39a;
+  --ember: #e4572e;
+  --holly: #2fa36b;
+  --glow: rgba(255, 214, 120, 0.55);
+}
+
+@theme inline {
+  --color-night-950: var(--night-950);
+  --color-night-900: var(--night-900);
+  --color-night-800: var(--night-800);
+  --color-night-700: var(--night-700);
+  --color-night-600: var(--night-600);
+  --color-mist: var(--mist);
+  --color-mist-dim: var(--mist-dim);
+  --color-gold: var(--gold);
+  --color-gold-soft: var(--gold-soft);
+  --color-ember: var(--ember);
+  --color-holly: var(--holly);
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+  --font-display: var(--font-fraunces), Georgia, serif;
+  --shadow-glow: 0 0 24px 4px var(--glow);
+  --shadow-glow-sm: 0 0 10px 2px var(--glow);
+}
+
+html {
+  scroll-behavior: smooth;
+  color-scheme: dark;
+}
+
+body {
+  background: var(--night-950);
+  color: var(--mist);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3, .font-display {
+  font-family: var(--font-display);
+  letter-spacing: -0.015em;
+}
+
+::selection {
+  background: var(--gold);
+  color: var(--night-950);
+}
+
+/* Night-sky backdrop used behind hero and section dividers */
+.sky {
+  background:
+    radial-gradient(1200px 600px at 50% -10%, rgba(38, 54, 90, 0.9), transparent 70%),
+    radial-gradient(800px 400px at 90% 20%, rgba(246, 196, 83, 0.08), transparent 70%),
+    var(--night-950);
+}
+
+/* Twinkling bulbs */
+@keyframes twinkle {
+  0%, 100% { opacity: 1; filter: drop-shadow(0 0 6px currentColor); }
+  50% { opacity: 0.55; filter: drop-shadow(0 0 2px currentColor); }
+}
+.bulb {
+  animation: twinkle 2.6s ease-in-out infinite;
+}
+.bulb:nth-child(3n) { animation-delay: -0.9s; }
+.bulb:nth-child(3n + 1) { animation-delay: -1.7s; }
+.bulb:nth-child(5n) { animation-duration: 3.4s; }
+.bulb:nth-child(7n) { animation-duration: 2.1s; }
+
+@media (prefers-reduced-motion: reduce) {
+  .bulb { animation: none; }
+  html { scroll-behavior: auto; }
+}
+
+@layer components {
+  /* Soft card surface */
+  .card {
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.02));
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 1.25rem;
+  }
+  .card-hover {
+    transition: transform 200ms ease, border-color 200ms ease, box-shadow 200ms ease;
+  }
+  .card-hover:hover {
+    transform: translateY(-3px);
+    border-color: rgba(246, 196, 83, 0.45);
+    box-shadow: 0 10px 40px -10px rgba(246, 196, 83, 0.25);
+  }
+
+  .eyebrow {
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--gold);
+  }
+
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    border-radius: 9999px;
+    padding: 0.8rem 1.4rem;
+    font-weight: 600;
+    font-size: 0.95rem;
+    transition: transform 150ms ease, box-shadow 150ms ease, background 150ms ease, color 150ms ease;
+  }
+  .btn:active { transform: translateY(1px); }
+  .btn-primary {
+    background: var(--gold);
+    color: var(--night-950);
+    box-shadow: 0 0 0 0 rgba(246, 196, 83, 0);
+  }
+  .btn-primary:hover {
+    background: var(--gold-soft);
+    box-shadow: 0 0 28px 2px rgba(246, 196, 83, 0.45);
+  }
+  .btn-ghost {
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    color: var(--mist);
+    background: rgba(255, 255, 255, 0.02);
+  }
+  .btn-ghost:hover {
+    border-color: rgba(255, 255, 255, 0.4);
+    background: rgba(255, 255, 255, 0.06);
+  }
+
+  .input {
+    width: 100%;
+    border-radius: 0.75rem;
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    background: rgba(255, 255, 255, 0.04);
+    padding: 0.8rem 1rem;
+    color: var(--mist);
+    outline: none;
+    transition: border-color 150ms ease, box-shadow 150ms ease;
+  }
+  .input::placeholder { color: rgba(169, 180, 204, 0.6); }
+  .input:focus {
+    border-color: var(--gold);
+    box-shadow: 0 0 0 3px rgba(246, 196, 83, 0.2);
+  }
+  select.input option { background: var(--night-800); }
+
+  details.faq > summary { list-style: none; cursor: pointer; }
+  details.faq > summary::-webkit-details-marker { display: none; }
+  details.faq[open] .chev { transform: rotate(180deg); }
+  .chev { transition: transform 200ms ease; }
+}
+
+:focus-visible {
+  outline: 2px solid var(--gold);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
