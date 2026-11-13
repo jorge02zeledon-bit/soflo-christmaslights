@@ -8,6 +8,8 @@ Built with Next.js 16 (App Router), React 19, TypeScript and Tailwind CSS 4.
 | Route | Purpose |
 | --- | --- |
 | `/` | Home: hero, services, process, packages, gallery preview, reviews, service area, FAQ, quote form |
+| `/residential` | Home-owner page: what's included, home services, packages, homeowner FAQ, quote form |
+| `/commercial` | Business page: benefits, property types, commercial process, FAQ, commercial quote form |
 | `/services` | All six services with details |
 | `/pricing` | Three packages plus pricing notes |
 | `/gallery` | Install gallery (illustrated placeholders until photos are added) |

@@ -7,7 +7,8 @@ import { business } from "@/content/site";
 
 const initial: QuoteState = { status: "idle" };
 
-export function QuoteForm({ compact = false }: { compact?: boolean }) {
+export function QuoteForm({ compact = false, variant = "residential" }: { compact?: boolean; variant?: "residential" | "commercial" }) {
+  const commercial = variant === "commercial";
   const [state, action, pending] = useActionState(submitQuote, initial);
 
   if (state.status === "success") {
@@ -44,11 +45,11 @@ export function QuoteForm({ compact = false }: { compact?: boolean }) {
         <Field label="Email" error={err.email}>
           <input className="input" name="email" type="email" autoComplete="email" required placeholder="you@example.com" aria-invalid={!!err.email} />
         </Field>
-        <Field label="Property address" error={err.address}>
-          <input className="input" name="address" autoComplete="street-address" required placeholder="123 Palm Ave, Coral Gables" aria-invalid={!!err.address} />
+        <Field label={commercial ? "Business address" : "Property address"} error={err.address}>
+          <input className="input" name="address" autoComplete="street-address" required placeholder={commercial ? "Business name and address" : "123 Palm Ave, Coral Gables"} aria-invalid={!!err.address} />
         </Field>
         <Field label="Property type" error={err.propertyType}>
-          <select className="input" name="propertyType" defaultValue="" required aria-invalid={!!err.propertyType}>
+          <select className="input" name="propertyType" defaultValue={commercial ? "Business / HOA" : ""} required aria-invalid={!!err.propertyType}>
             <option value="" disabled>
               Select one
             </option>
@@ -75,7 +76,7 @@ export function QuoteForm({ compact = false }: { compact?: boolean }) {
         <div className="mt-3 grid gap-2 sm:grid-cols-2 lg:grid-cols-3">
           {SERVICE_OPTIONS.map((s) => (
             <label key={s} className="flex cursor-pointer items-center gap-3 rounded-xl border border-white/10 bg-white/[0.03] px-4 py-3 text-sm transition hover:border-gold/50 has-[:checked]:border-gold has-[:checked]:bg-gold/10">
-              <input type="checkbox" name="services" value={s} className="h-4 w-4 accent-[#f6c453]" />
+              <input type="checkbox" name="services" value={s} defaultChecked={commercial && s === "Commercial / HOA"} className="h-4 w-4 accent-[#f6c453]" />
               {s}
             </label>
           ))}
@@ -100,7 +101,16 @@ export function QuoteForm({ compact = false }: { compact?: boolean }) {
 
       <div className="mt-6">
         <Field label="Anything else? Colors, style, HOA rules, gate codes…">
-          <textarea className="input min-h-28" name="notes" rows={4} placeholder="We'd love warm white on the roofline and the four palms out front wrapped. Two-story, barrel tile roof." />
+          <textarea
+            className="input min-h-28"
+            name="notes"
+            rows={4}
+            placeholder={
+              commercial
+                ? "Restaurant with a 60 ft storefront and six palms in the parking lot. Need install after 10pm and a COI for the landlord."
+                : "We'd love warm white on the roofline and the four palms out front wrapped. Two-story, barrel tile roof."
+            }
+          />
         </Field>
       </div>
 

@@ -36,12 +36,16 @@ export const business = {
 } as const;
 
 export const nav = [
+  { href: "/residential", label: "Residential" },
+  { href: "/commercial", label: "Commercial" },
   { href: "/services", label: "Services" },
   { href: "/pricing", label: "Pricing" },
   { href: "/gallery", label: "Gallery" },
-  { href: "/service-areas", label: "Service Areas" },
   { href: "/faq", label: "FAQ" },
 ] as const;
+
+/** Links shown in the footer in addition to the main nav. */
+export const footerLinks = [{ href: "/service-areas", label: "Service Areas" }] as const;
 
 export type Service = {
   slug: string;
@@ -353,3 +357,122 @@ export const gallery: GalleryItem[] = [
   { title: "Commercial building with palms", subtitle: "Multi-story façades and medians", tags: ["Commercial", "Palms"], scene: "commercial" },
   { title: "Balcony garland and oversized wreath", subtitle: "Condos and townhomes", tags: ["Garland", "Wreath"], scene: "wreath" },
 ];
+
+/* ------------------------------------------------------------------ */
+/* Residential and commercial pages                                    */
+/* ------------------------------------------------------------------ */
+
+export const residential = {
+  eyebrow: "Residential",
+  title: "Holiday lighting for your home, handled start to finish",
+  intro:
+    "Rooflines, palms, wreaths, pathways and yard displays for single-family homes, townhomes and condos across South Florida. We bring the lights, install them, fix anything that goes dark, and take it all down in January.",
+  highlights: [
+    {
+      title: "Designed on a photo of your home",
+      text: "Before install day you see a mock-up showing exactly which lines get lit, in which colors, so there are no surprises after dark.",
+    },
+    {
+      title: "Nothing to buy, nothing to store",
+      text: "We own the lights, clips and controllers. You pay one all-inclusive price and never touch a tangled strand.",
+    },
+    {
+      title: "Roof-safe installation",
+      text: "Clips matched to barrel tile, flat tile, shingle or metal. No nails, screws or staples, and soft ties on palms.",
+    },
+    {
+      title: "Set-and-forget timers",
+      text: "Lights come on at dusk and off when you choose. Signature and Showstopper packages add app control from your phone.",
+    },
+    {
+      title: "Free repairs all season",
+      text: "A bulb out or a section dark? Text us and we are back within 48 hours, usually the next day, at no charge.",
+    },
+    {
+      title: "Takedown in January",
+      text: "We schedule removal around you, label everything and store it, so next year's install is quicker and cheaper.",
+    },
+  ],
+  serviceSlugs: ["roofline", "palms-and-trees", "wreaths-and-garland", "yard-displays", "maintenance"],
+  faqs: [
+    {
+      q: "Do you work with HOA rules?",
+      a: "Yes. Tell us your HOA's guidelines on colors, dates or placement and we design within them. We can also provide a certificate of insurance if your association asks for one.",
+    },
+    {
+      q: "Can you match what my neighbors have?",
+      a: "Absolutely. Send us a photo of a display you like and we will quote the same look fitted to your home.",
+    },
+    {
+      q: "Do I need to be home for the install?",
+      a: "No. We only need access to an outdoor outlet and the front of the property. Most installs take two to four hours and we text you photos when the lights are tested after dark.",
+    },
+  ],
+} as const;
+
+export const commercial = {
+  eyebrow: "Commercial",
+  title: "Holiday lighting that brings customers through the door",
+  intro:
+    "Storefronts, restaurants, office parks, HOA entrances, condo buildings, car dealerships and churches. We plan, install and maintain commercial displays on your schedule, with the paperwork your property manager expects.",
+  highlights: [
+    {
+      title: "Site walk and rendered plan",
+      text: "We walk the property with you, measure, and deliver a lighting plan with a visual mock-up and an itemized proposal.",
+    },
+    {
+      title: "Installed around your hours",
+      text: "Early mornings, after close or overnight. We stage equipment so your entrances, parking and customers are never blocked.",
+    },
+    {
+      title: "Lift and bucket-truck capable",
+      text: "Multi-story façades, tall palms, signage and parking-lot trees are all within reach, with fall protection on every job.",
+    },
+    {
+      title: "Certificates of insurance",
+      text: "General liability and workers' compensation documentation sent to your landlord, HOA or property manager on request.",
+    },
+    {
+      title: "Priority maintenance",
+      text: "Commercial displays get same-day or next-day response, because a dark sign on a Friday night costs you money.",
+    },
+    {
+      title: "Multi-year pricing",
+      text: "Lock in your rate for two or three seasons. Returning displays install faster and cost less each year.",
+    },
+  ],
+  clientTypes: [
+    "Restaurants & bars",
+    "Retail storefronts & plazas",
+    "HOA entrances & medians",
+    "Condo & apartment buildings",
+    "Office parks & medical centers",
+    "Car dealerships",
+    "Hotels & event venues",
+    "Churches & schools",
+  ],
+  process: [
+    { step: "01", title: "Site walk", text: "A 30-minute visit to measure, check power and hear what you want the property to say in December." },
+    { step: "02", title: "Proposal", text: "A rendered plan with itemized pricing, install dates and maintenance terms, usually within two business days." },
+    { step: "03", title: "Install", text: "Scheduled around your operating hours, tested after dark, controllers set to your schedule." },
+    { step: "04", title: "Season support & removal", text: "Priority repairs through the season, then removal and storage in January on a date you choose." },
+  ],
+  faqs: [
+    {
+      q: "How is commercial pricing determined?",
+      a: "By linear footage of lit roofline and signage, number and height of trees, lift requirements and install-hour constraints. Every proposal is itemized so you can adjust scope before approving.",
+    },
+    {
+      q: "Can you invoice the business or the HOA?",
+      a: "Yes. We invoice the entity of your choice, accept ACH, card and check, and can split billing across seasons for multi-year agreements.",
+    },
+    {
+      q: "What about permits and landlord approval?",
+      a: "Most temporary holiday lighting does not require a permit, but we check local rules for your address and supply whatever your landlord or association needs to sign off.",
+    },
+    {
+      q: "How early should a business book?",
+      a: "Commercial installs are scheduled first, typically late October through mid-November so the display is up before Thanksgiving. Contact us by early October for the best dates.",
+    },
+  ],
+} as const;

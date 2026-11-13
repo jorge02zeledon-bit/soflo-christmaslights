@@ -24,7 +24,7 @@ export function Header() {
           </span>
         </Link>
 
-        <nav aria-label="Primary" className="hidden items-center gap-7 text-sm font-medium text-mist-dim lg:flex">
+        <nav aria-label="Primary" className="hidden items-center gap-6 text-sm font-medium text-mist-dim lg:flex">
           {nav.map((item) => (
             <Link
               key={item.href}

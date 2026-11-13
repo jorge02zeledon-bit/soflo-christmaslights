@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { business, nav } from "@/content/site";
+import { business, footerLinks, nav } from "@/content/site";
 import { LightString } from "@/components/LightString";
 import { cacheLife } from "next/cache";
 
@@ -34,7 +34,7 @@ export function Footer() {
         <div>
           <p className="eyebrow">Explore</p>
           <ul className="mt-4 space-y-2 text-sm text-mist-dim">
-            {nav.map((item) => (
+            {[...nav, ...footerLinks].map((item) => (
               <li key={item.href}>
                 <Link href={item.href} className="hover:text-mist">
                   {item.label}

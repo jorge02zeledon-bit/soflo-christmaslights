@@ -52,6 +52,44 @@ export default function HomePage() {
         </div>
       </section>
 
+      {/* Residential vs commercial */}
+      <section className="mx-auto max-w-7xl px-5 pt-20 sm:px-8">
+        <div className="grid gap-6 lg:grid-cols-2">
+          <Link href="/residential" className="card card-hover group relative flex flex-col overflow-hidden">
+            <div className="aspect-[16/7] w-full overflow-hidden bg-night-900">
+              <HouseScene palette="warm" variant="home" className="h-full w-full object-cover" />
+            </div>
+            <div className="flex flex-1 flex-col p-7">
+              <p className="eyebrow">Residential</p>
+              <h2 className="mt-2 text-2xl font-semibold sm:text-3xl">Homes, townhomes &amp; condos</h2>
+              <p className="mt-3 text-sm leading-relaxed text-mist-dim">
+                All-inclusive packages from $449. Rooflines, palms, wreaths and yard displays, designed on a photo of your
+                home, with free repairs and January takedown.
+              </p>
+              <span className="mt-5 text-sm font-semibold text-gold group-hover:text-gold-soft">
+                Residential lighting →
+              </span>
+            </div>
+          </Link>
+          <Link href="/commercial" className="card card-hover group relative flex flex-col overflow-hidden">
+            <div className="aspect-[16/7] w-full overflow-hidden bg-night-900">
+              <HouseScene palette="warm" variant="commercial" className="h-full w-full object-cover" />
+            </div>
+            <div className="flex flex-1 flex-col p-7">
+              <p className="eyebrow">Commercial</p>
+              <h2 className="mt-2 text-2xl font-semibold sm:text-3xl">Businesses, HOAs &amp; properties</h2>
+              <p className="mt-3 text-sm leading-relaxed text-mist-dim">
+                Storefronts, restaurants, office parks and HOA entrances. Site walk, rendered plan, after-hours install,
+                certificates of insurance and priority maintenance.
+              </p>
+              <span className="mt-5 text-sm font-semibold text-gold group-hover:text-gold-soft">
+                Commercial lighting →
+              </span>
+            </div>
+          </Link>
+        </div>
+      </section>
+
       {/* Services */}
       <Section
         id="services"
